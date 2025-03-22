@@ -17,3 +17,4 @@ cutoff = 5
 pure_state = alpha * a1 + beta * a2
 mixed_state = 0.5 * (a1 @ b1) + 0.5 * (a2 @ b2)
 entangled_state = (1/np.sqrt(2)) * np.kron(a1, a1) + (1/np.sqrt(2)) * np.kron(a2, a2)
+coherent_state = coherent_state = np.array([np.exp(-np.abs(alpha)**2 / 2) * (alpha**n) / np.sqrt(factorial(n)) for n in range(cutoff)])
