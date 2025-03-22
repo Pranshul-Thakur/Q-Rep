@@ -1,4 +1,6 @@
 import numpy as np
+from scipy.linalg import sqrtm
+from scipy.special import factorial
 
 a1 = np.array([[1], [0]]) # orthonormal basis vector = |0⟩
 a2 = np.array([[0], [1]]) # orthonormal basis vector = |1⟩
@@ -10,9 +12,8 @@ b2 = a2.T.conj() # ⟨1|
 # normalized superposition state
 alpha = 1/np.sqrt(2)
 beta = 1/np.sqrt(2)
+cutoff = 5
 
-state = alpha * a1 + beta * a2
-inner_product = b1 @ state # inner dot product
-
-print(state)
-print(inner_product)
+pure_state = alpha * a1 + beta * a2
+mixed_state = 0.5 * (a1 @ b1) + 0.5 * (a2 @ b2)
+entangled_state = (1/np.sqrt(2)) * np.kron(a1, a1) + (1/np.sqrt(2)) * np.kron(a2, a2)
