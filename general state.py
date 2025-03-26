@@ -2,7 +2,8 @@ import numpy as np
 from scipy.linalg import sqrtm
 from scipy.special import factorial
 from qiskit import QuantumCircuit
-
+from qiskit.providers.aer import AerSimulator
+from qiskit.providers.aer.noise import NoiseModel
 # from qiskit.quantum_info import Statevector
 
 
@@ -58,3 +59,14 @@ qc.cx(0, 1)
 qc.cx(0, 2)  #GHZ state
 
 
+qc = QuantumCircuit(4)
+qc.h(0)
+qc.cx(0, 1)
+qc.cx(1, 2)
+qc.cx(2, 3) # cluster state
+
+
+noise = AerSimulator(noise_model=NoiseModel()) # noisystate
+
+
+majorana_state = (np.array([[1], [1]]) / np.sqrt(2)) 
