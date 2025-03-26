@@ -1,6 +1,8 @@
 import numpy as np
 from scipy.linalg import sqrtm
 from scipy.special import factorial
+from qiskit import QuantumCircuit
+
 # from qiskit.quantum_info import Statevector
 
 
@@ -39,3 +41,20 @@ fock_state[n] = 1
 
 # alpha1 = 1.0
 # wigner_state = Statevector.from_label('0').evolve(np.exp(-np.abs(alpha)**2 / 2)) formula has issues
+
+
+# r = 0.5
+# squeezed_state = Statevector([np.cosh(r), 0, 0, np.sinh(r)]) same issues
+
+
+qc = QuantumCircuit(1)
+qc.h(0) #horrible and really incorrect attempt at schrodinger attempt
+
+
+
+qc = QuantumCircuit(3)
+qc.h(0)
+qc.cx(0, 1)
+qc.cx(0, 2)  #GHZ state
+
+
